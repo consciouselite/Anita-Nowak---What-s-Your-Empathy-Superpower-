@@ -22,7 +22,7 @@ export const NameInput: React.FC<NameInputProps> = ({ value, onChange, onNext })
     >
       <div className="mb-10">
         <motion.h2 
-          className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600 mb-3"
+          className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-hero mb-3"
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
@@ -30,7 +30,7 @@ export const NameInput: React.FC<NameInputProps> = ({ value, onChange, onNext })
           Let's Start Your Journey
         </motion.h2>
         <motion.p 
-          className="text-gray-600 text-lg"
+          className="text-secondary-700 text-lg"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4 }}
@@ -45,14 +45,14 @@ export const NameInput: React.FC<NameInputProps> = ({ value, onChange, onNext })
             initial={{ width: 0 }}
             animate={{ width: "100%" }}
             transition={{ delay: 0.6, duration: 0.8 }}
-            className="h-1 bg-gradient-to-r from-indigo-300 to-purple-300 absolute -bottom-2 left-0 rounded-full"
+            className="h-1 bg-gradient-card absolute -bottom-2 left-0 rounded-full"
           />
           <input
             type="text"
             value={value}
             onChange={(e) => onChange(e.target.value)}
             placeholder="Your first name"
-            className="form-input text-center text-xl w-full bg-transparent border-none border-b-2 border-gray-200 focus:ring-0 focus:border-indigo-500 transition-all"
+            className="form-input text-center text-xl w-full bg-transparent border-none border-b-2 border-secondary-200 focus:ring-0 focus:border-primary-500 transition-all"
             autoFocus
           />
         </div>
@@ -65,7 +65,7 @@ export const NameInput: React.FC<NameInputProps> = ({ value, onChange, onNext })
           <button
             type="submit"
             disabled={!value.trim()}
-            className="primary-button flex items-center justify-center gap-2 w-full disabled:opacity-50 disabled:cursor-not-allowed bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 transition-all duration-300 py-3 text-lg"
+            className="primary-button flex items-center justify-center gap-2 w-full disabled:opacity-50 disabled:cursor-not-allowed bg-gradient-hero transition-all duration-300 py-3 text-lg"
           >
             <span>Continue</span>
             <ArrowRight size={18} className="inline-block transition-transform group-hover:translate-x-1" />
@@ -74,12 +74,12 @@ export const NameInput: React.FC<NameInputProps> = ({ value, onChange, onNext })
       </form>
       
       <motion.div 
-        className="mt-8 text-sm text-gray-500 italic"
+        className="mt-8 text-sm text-secondary-500 italic"
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.8 }}
         transition={{ delay: 1 }}
       >
-        Discover your career confidence level in just a few minutes
+        Discover your mind-body connection in just a few minutes
       </motion.div>
     </motion.div>
   );

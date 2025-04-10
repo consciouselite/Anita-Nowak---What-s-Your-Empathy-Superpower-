@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { QuizState, PersonalityType, UserData, OnboardingData } from '../types/quiz';
-import { confidenceProfiles } from '../data/careerQuizData';
+import { scoreProfiles } from '../data/scoreQuizData';
 import { quizService } from '../services/quiz.service';
 
 export const useQuiz = () => {
@@ -10,8 +10,8 @@ export const useQuiz = () => {
     answers: [],
     onboardingData: {
       firstName: '',
-      gender: 'female',
-      ageGroup: '26-35'
+      gender: null,
+      ageGroup: null
     }
   });
 
@@ -20,11 +20,12 @@ export const useQuiz = () => {
     lastName: '',
     email: '',
     phone: '',
-    gender: 'female',
-    ageGroup: '26-35'
+    gender: null,
+    ageGroup: null
   });
 
   const [result, setResult] = useState<PersonalityType | null>(null);
+  const [totalScore, setTotalScore] = useState<number>(0);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -34,15 +35,15 @@ export const useQuiz = () => {
       ...prev,
       answers: newAnswers,
       currentQuestion: prev.currentQuestion + 1,
-      step: prev.currentQuestion === 3 ? 'form' : 'questions'
+      step: prev.currentQuestion === 11 ? 'form' : 'questions'
     }));
   };
 
   const calculateResult = () => {
     const totalScore = state.answers.reduce((sum, score) => sum + score, 0);
-    const profile = confidenceProfiles.find(
+    const profile = scoreProfiles.find(
       p => totalScore >= p.scoreRange.min && totalScore <= p.scoreRange.max
-    ) || confidenceProfiles[0];
+    ) || scoreProfiles[0];
     return { score: totalScore, profile };
   };
 
@@ -75,6 +76,7 @@ export const useQuiz = () => {
 
       const { score, profile } = calculateResult();
       setResult(profile);
+      setTotalScore(score);
 
       await quizService.saveQuizResults(
         fullUserData,
@@ -96,6 +98,7 @@ export const useQuiz = () => {
     state,
     userData,
     result,
+    totalScore,
     isSubmitting,
     error,
     handleAnswer,

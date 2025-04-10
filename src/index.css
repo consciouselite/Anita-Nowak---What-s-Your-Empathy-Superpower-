@@ -1,3 +1,193 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    /* Base colors */
+    --white: #FFFFFF;
+    
+    /* Primary colors - Trustworthy Teal */
+    --primary-50: #F0F9FA;
+    --primary-100: #E6F3F5;
+    --primary-200: #C2E1E6;
+    --primary-300: #9DCED7;
+    --primary-400: #79BAC7;
+    --primary-500: #3C8D9E;
+    --primary-600: #2E7A8A;
+    --primary-700: #216776;
+    --primary-800: #154552;
+    --primary-900: #082C35;
+    
+    /* Secondary colors - Balanced Slate */
+    --secondary-100: #F8FAFC;
+    --secondary-200: #F1F5F9;
+    --secondary-300: #E2E8F0;
+    --secondary-400: #CBD5E1;
+    --secondary-500: #94A3B8;
+    --secondary-600: #64748B;
+    --secondary-700: #475569;
+    --secondary-800: #27272A;
+    --secondary-900: #020617;
+    
+    /* Accent colors - Inspiring Gold */
+    --accent-100: #FFF8E1;
+    --accent-200: #FFECB3;
+    --accent-300: #FFE082;
+    --accent-400: #FFD54F;
+    --accent-500: #F9D423;
+    --accent-600: #FBC02D;
+    --accent-700: #F9A825;
+    --accent-800: #F57F17;
+    --accent-900: #E65100;
+
+    /* Supporting colors */
+    --success: #22C55E;
+    --warning: #F59E0B;
+    --error: #EF4444;
+    --info: #3B82F6;
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(90deg, #216776, #3C8D9E);
+    --gradient-card: linear-gradient(90deg, #E6F3F5, #C2E1E6);
+    --gradient-button: linear-gradient(90deg, #F9D423, #FBC02D);
+    --gradient-highlight: linear-gradient(90deg, #C2E1E6, #9DCED7);
+    
+    /* Typography */
+    --font-family-display: 'Raleway', sans-serif;
+    --font-family-heading: 'Raleway', sans-serif;
+    --font-family-body: 'Open Sans', sans-serif;
+    
+    /* Font Weights */
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    
+    /* Font Sizes */
+    --font-size-display-1: 3rem;
+    --font-size-display-2: 2.25rem;
+    --font-size-h1: 1.875rem;
+    --font-size-h2: 1.5rem;
+    --font-size-h3: 1.25rem;
+    --font-size-h4: 1.125rem;
+    --font-size-large: 1.125rem;
+    --font-size-base: 1rem;
+    --font-size-small: 0.875rem;
+    --font-size-xs: 0.75rem;
+    
+    /* Line Heights */
+    --line-height-tight: 1.25;
+    --line-height-normal: 1.5;
+    --line-height-relaxed: 1.75;
+    
+    /* Spacing */
+    --spacing-0: 0;
+    --spacing-1: 0.25rem;
+    --spacing-2: 0.5rem;
+    --spacing-3: 0.75rem;
+    --spacing-4: 1rem;
+    --spacing-6: 1.5rem;
+    --spacing-8: 2rem;
+    --spacing-12: 3rem;
+    --spacing-16: 4rem;
+    --spacing-20: 5rem;
+    --spacing-24: 6rem;
+    
+    /* Border Radius */
+    --radius-none: 0;
+    --radius-sm: 0.125rem;
+    --radius-md: 0.375rem;
+    --radius-lg: 0.5rem;
+    --radius-xl: 0.75rem;
+    --radius-2xl: 1rem;
+    --radius-full: 9999px;
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+    
+    /* Coach Info */
+    --coach-name: "Dr. Anita Nowak";
+    --coach-profile-image: "https://nrojbwxcqochzwhmmkql.supabase.co/storage/v1/object/sign/coaches-profile-images/Anita%20Nowak%20PP.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJjb2FjaGVzLXByb2ZpbGUtaW1hZ2VzL0FuaXRhIE5vd2FrIFBQLnBuZyIsImlhdCI6MTc0MzUxNjA4NiwiZXhwIjoxNzc1MDUyMDg2fQ.3U7L3RGiwgF2FW1-dCukQI6pZbWmJO_6jbcMJSQWvA8";
+  }
+}
+
+@layer components {
+  /* Base Styles */
+  .quiz-container {
+    @apply max-w-3xl mx-auto bg-white p-6 sm:p-8 rounded-xl shadow-lg border border-primary-100;
+  }
+  
+  .quiz-title {
+    @apply text-2xl sm:text-3xl font-bold text-transparent bg-clip-text bg-gradient-hero mb-3 sm:mb-4 text-center font-display;
+  }
+  
+  .quiz-subtitle {
+    @apply text-base sm:text-lg text-secondary-600 mb-6 sm:mb-8 text-center max-w-lg mx-auto font-body;
+  }
+  
+  .result-title {
+    @apply text-xl sm:text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-hero mb-4 text-center font-display;
+  }
+  
+  .result-title .highlight {
+    @apply font-bold text-primary-600;
+  }
+  
+  .result-description {
+    @apply text-base sm:text-lg text-secondary-700 mb-6 leading-relaxed max-w-2xl mx-auto font-body;
+  }
+  
+  /* Button Styles */
+  .primary-button {
+    @apply rounded-full px-6 py-3 text-secondary-800 font-semibold bg-gradient-button hover:shadow-md transition-all duration-300 transform hover:-translate-y-1 font-heading;
+  }
+  
+  .secondary-button {
+    @apply rounded-full px-6 py-3 bg-white text-primary-600 font-semibold border border-primary-300 hover:bg-primary-100 hover:border-primary-500 transition-all duration-300 font-heading;
+  }
+  
+  /* Option Cards */
+  .option-button {
+    @apply flex items-center p-4 border rounded-lg transition-all bg-white hover:bg-primary-100 hover:border-primary-300 hover:shadow-md font-body;
+  }
+  
+  .option-button-selected {
+    @apply bg-primary-100 border-primary-500 shadow-md;
+  }
+  
+  /* Gender and Age Selection */
+  .gender-option, .age-option {
+    @apply flex flex-col items-center p-2 border rounded-lg bg-white hover:bg-primary-100 hover:border-primary-300 transition-all duration-300 hover:shadow-md font-body;
+  }
+  
+  .gender-option-selected, .age-option-selected {
+    @apply bg-primary-100 border-primary-500 shadow-md;
+  }
+  
+  /* Form Inputs */
+  .form-input {
+    @apply w-full px-4 py-2 border border-secondary-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 font-body;
+  }
+  
+  /* Type Bars in Results */
+  .type-bar-container {
+    @apply w-full;
+  }
+  
+  .type-label {
+    @apply text-sm sm:text-base text-secondary-700 font-body;
+  }
+
+  /* Card Styles */
+  .card {
+    @apply bg-white p-6 rounded-lg shadow-md border border-secondary-200;
+  }
+
+  .card-highlight {
+    @apply bg-gradient-card p-6 rounded-lg shadow-md;
+  }
+}

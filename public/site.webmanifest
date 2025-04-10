@@ -1,0 +1,19 @@
+{
+  "name": "Empathy Type Framework",
+  "short_name": "Empathy Quiz",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#3C8D9E",
+  "background_color": "#F0F9FA",
+  "display": "standalone"
+} 

@@ -3,6 +3,10 @@ import type { UserData } from '../types/quiz';
 
 export const userService = {
   async createUser(userData: UserData) {
+    // Ensure gender and ageGroup have default values if null
+    const gender = userData.gender || 'unspecified';
+    const ageGroup = userData.ageGroup || 'unspecified';
+
     const { data, error } = await supabase
       .from('users')
       .insert({
@@ -10,8 +14,8 @@ export const userService = {
         last_name: userData.lastName,
         email: userData.email,
         phone: userData.phone,
-        gender: userData.gender,
-        age_group: userData.ageGroup
+        gender: gender,
+        age_group: ageGroup
       })
       .select('id')
       .single();
